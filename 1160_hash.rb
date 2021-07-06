@@ -1,0 +1,19 @@
+# @param {String} word
+# @param {Hash} hash
+# @return {Boolean}
+def formed(word, hash)
+  word.each_char do |c|
+    hash[c] = (hash[c] || 0) - 1
+    return false if hash[c] < 0
+  end
+  true
+end
+
+# @param {String[]} words
+# @param {String} chars
+# @return {Integer}
+def count_characters(words, chars)
+  hash = {}
+  chars.each_char {|c| hash[c] = (hash[c] || 0) + 1}
+  words.map {|word| formed(word, hash.dup) ? word.length : 0}.sum
+end
