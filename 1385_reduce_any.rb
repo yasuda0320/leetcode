@@ -3,16 +3,7 @@
 # @param {Integer} d
 # @return {Integer}
 def find_the_distance_value(arr1, arr2, d)
-  count = arr1.size
-  arr1.each do |i|
-    arr2.each do |j|
-      if (i - j).abs <= d
-        count -= 1
-        break
-      end
-    end
-  end
-  count
+  arr1.reduce(0) { |result, i| result + (arr2.any? { |j| (i - j).abs <= d } ? 0 : 1) }
 end
 
 p find_the_distance_value([4,5,8], [10,9,1,8], 2) == 2
