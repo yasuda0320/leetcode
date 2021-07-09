@@ -1,3 +1,4 @@
+
 function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number {
     return arr1.reduce((result, i) => (result + (arr2.some(j => Math.abs(i - j) <= d) ? 0 : 1)), 0)
 }
