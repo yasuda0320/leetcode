@@ -14,3 +14,8 @@ def convert_to_title(column_number)
   end
   sheet.reverse
 end
+
+p convert_to_title(1) == 'A'
+p convert_to_title(28) == 'AB'
+p convert_to_title(701) == 'ZY'
+p convert_to_title(2147483647) == 'FXSHRXW'
