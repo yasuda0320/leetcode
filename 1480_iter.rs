@@ -4,7 +4,7 @@ impl Solution {
   pub fn running_sum(nums: Vec<i32>) -> Vec<i32> {
     let mut sums = vec![0; nums.len()];
     for (i, n) in nums.iter().enumerate() {
-      sums[i] += n + (if i > 0 { sums[i - 1] } else { 0 } );
+      sums[i] += n + (if i > 0 { sums[i - 1] } else { 0 });
     }
     sums
   }
