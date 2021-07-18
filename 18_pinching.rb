@@ -7,7 +7,9 @@ def four_sum(nums, target)
   
   (0..nums.length - 4).each do |i|
     break if nums[i] * 4 > target
-    (i + 1..nums.length - 3).each do |j|
+    next if i > 0 && nums[i] == nums[i - 1]
+    j = i + 1
+    while j <= nums.length - 3
       break if nums[i] + nums[j] * 3 > target
       sum2 = nums[i] + nums[j]
       k = j + 1
@@ -17,7 +19,10 @@ def four_sum(nums, target)
         case
         when sum4 == target
           result << [nums[i], nums[j], nums[k], nums[l]]
+          j += 1 while nums[j] == nums[j + 1]
+          k += 1 while nums[k] == nums[k + 1] && k < l
           k += 1
+          l -= 1 while nums[l] == nums[l - 1] && k < l
           l -= 1
         when sum4 < target
           k += 1
@@ -25,10 +30,11 @@ def four_sum(nums, target)
           l -= 1
         end 
       end
+      j += 1
     end
   end
   
-  result.uniq
+  result
 end
 
 result = four_sum([1,0,-1,0,-2,2], 0).sort
