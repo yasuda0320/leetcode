@@ -4,6 +4,8 @@
  * @return {number[][]}
  */
 function fourSum(nums, target) {
+  if (nums.length < 4)
+    return [];
   nums.sort((a, b) => a - b);
   let result = [];
   
@@ -22,10 +24,10 @@ function fourSum(nums, target) {
         let sum4 = sum2 + nums[k] + nums[l];
         if (sum4 == target) {
           result.push([nums[i], nums[j], nums[k], nums[l]]);
-          while (nums[j] === nums[j + 1]) j++;
-          while (nums[k] === nums[k + 1]) k++;
+          while (j <= nums.length - 3 && nums[j] === nums[j + 1]) j++;
+          while (k < l && nums[k] === nums[k + 1]) k++;
           k++;
-          while (nums[l] === nums[l - 1]) l++;
+          while (l > k && nums[l] === nums[l - 1]) l--;
           l--;
         } else if (sum4 < target) {
           k++;
