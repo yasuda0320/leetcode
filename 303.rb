@@ -14,7 +14,7 @@ class NumArray
     :rtype: Integer
 =end
   def sum_range(left, right)
-    @nums[left..right].sum
+    @nums[left..right].inject(:+)
   end
 
 
