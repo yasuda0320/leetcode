@@ -9,7 +9,7 @@
 # end
 # @param {TreeNode} node
 # @return {Integer}
-def good_nodes(node, max = -10001)
+def good_nodes(node, max = -10000)
   count = 0
   if node.val >= max
     count = 1
