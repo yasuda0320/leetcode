@@ -7,20 +7,15 @@
 #         @right = right
 #     end
 # end
-
-def dfs(max, node)
+# @param {TreeNode} node
+# @return {Integer}
+def good_nodes(node, max = -10001)
   count = 0
   if node.val >= max
     count = 1
     max = node.val
   end
-  count += dfs(max, node.left) if node.left
-  count += dfs(max, node.right) if node.right
+  count += good_nodes(node.left, max) if node.left
+  count += good_nodes(node.right, max) if node.right
   count
-end
-
-# @param {TreeNode} root
-# @return {Integer}
-def good_nodes(root)
-  dfs(-10001, root)
 end
