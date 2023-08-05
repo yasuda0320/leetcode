@@ -4,10 +4,7 @@
 def merge_alternately(word1, word2)
   array1 = word1.split('')
   array2 = word2.split('')
-  if array1.size > array2.size
-    array2 += [nil] * (array1.size - array2.size).abs
-  else
-    array1 += [nil] * (array1.size - array2.size).abs
-  end
+  diff = array1.size - array2.size
+  diff >= 0 ? (array2 += [nil] * diff) : (array1 += [nil] * -diff)
   [array1, array2].transpose.flatten.compact.join
 end
