@@ -3,9 +3,10 @@ class NumArray {
   
 public:
   NumArray(vector<int>& nums) {
-    int size = nums.size();
-    sums = vector<int>(size + 1, 0);
-    for (int i = 0; i < size; i++) {
+    auto size = nums.size();
+    sums = vector<int>(size + 1);
+    sums[0] = 0;
+    for (auto i = 0; i < size; i++) {
       sums[i + 1] = sums[i] + nums[i];
     }
   }
