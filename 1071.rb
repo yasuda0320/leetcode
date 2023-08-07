@@ -1,15 +1,14 @@
 require 'prime'
 
-def divisors(n)
-  return [] if n <= 0
-  return [1] if n == 1
+def divisors(num)
+  return [] if num <= 0
+  return [1] if num == 1
   
-  n.prime_division.map.with_index { |(base, k), i|
-    s = i.zero? ? 0 : 1
-    (s..k).map { |n| base ** n }
-  }.inject { |res, e|
-    res + res.flat_map { |t| 
-      e.map { |v| t * v }
+  ([[1]] + num.prime_division.map { |base, k|
+    (1..k).map { |n| base ** n }
+  }).inject { |result, item|
+    result + result.flat_map { |t| 
+      item.map { |v| t * v }
     }
   }
 end
