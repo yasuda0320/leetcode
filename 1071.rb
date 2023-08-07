@@ -26,7 +26,7 @@ def gcd_of_strings(str1, str2)
     string_divisor = str1[0, divisor]
     return string_divisor if str1 == string_divisor * (length1 / divisor) && str2 == string_divisor * (length2 / divisor)
   end
-  return ''
+  ''
 end
 
 p gcd_of_strings('ABCABC', 'ABC')
