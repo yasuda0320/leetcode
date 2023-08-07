@@ -30,4 +30,6 @@ def gcd_of_strings(str1, str2)
 end
 
 p gcd_of_strings('ABCABC', 'ABC')
+p gcd_of_strings('ABABAB', 'ABAB')
+p gcd_of_strings('LEET', 'CODE')
 p gcd_of_strings('AA', 'A')
