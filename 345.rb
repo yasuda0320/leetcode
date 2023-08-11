@@ -1,10 +1,19 @@
 # @param {String} s
 # @return {String}
 def reverse_vowels(s)
-  vowels = {}
-  array = s.split('')
-  array.each_with_index { vowels[_2] = _1 if %w(a e i o u A E I O U).include?(_1) }
-  vowels = vowels.keys.zip(vowels.values.reverse).to_h
-  vowels.each {array[_1] = _2}
-  array.join
+  vowels = {
+    'a' => true, 'e' => true, 'i' => true, 'o' => true, 'u' => true,
+    'A' => true, 'E' => true, 'I' => true, 'O' => true, 'U' => true,
+  }
+  left = 0
+  right = s.length - 1
+
+  while left < right
+    left += 1 while left < right && !vowels[s[left]]
+    right -= 1 while left < right && !vowels[s[right]]
+    s[left], s[right] = s[right], s[left]
+    left += 1
+    right -= 1
+  end
+  s
 end
