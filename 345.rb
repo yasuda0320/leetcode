@@ -9,8 +9,8 @@ def reverse_vowels(s)
   right = s.length - 1
 
   while left < right
-    (left += 1; next) if !vowels[s[left]]
-    (right -= 1; next) if !vowels[s[right]]
+    (left += 1; next) unless vowels[s[left]]
+    (right -= 1; next) unless vowels[s[right]]
     s[left], s[right] = s[right], s[left]
     left += 1
     right -= 1
